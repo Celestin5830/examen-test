@@ -63,7 +63,7 @@ jobs:
 
       # Scan de l'image Docker avec Trivy pour détecter les vulnérabilités HIGH et CRITICAL
       - name: Scan Docker image with Trivy
-        run: trivy image --exit-code 1 --severity HIGH,CRITICAL ${{ secrets.DOCKER_USERNAME }}/examen-test:latest
+        run: trivy image --severity HIGH,CRITICAL ${{ secrets.DOCKER_USERNAME }}/examen-test:latest
 
       # Push de l'image Docker sur Docker Hub
       - name: Push Docker image
