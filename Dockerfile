@@ -4,14 +4,11 @@ FROM node:18
 # Définit le répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copie les fichiers package.json et package-lock.json
-COPY package*.json ./
+# Copie le reste des fichiers du projet
+COPY . .
 
 # Installe les dépendances
 RUN npm install
-
-# Copie le reste des fichiers du projet
-COPY . .
 
 # Expose le port utilisé par l'application Node.js
 EXPOSE 8080
