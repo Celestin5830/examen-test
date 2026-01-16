@@ -1,5 +1,5 @@
 # Utilise une image officielle de Node.js 18
-FROM node:18-alpine
+FROM node:18
 
 # Définit le répertoire de travail dans le conteneur
 WORKDIR /app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8080
 
 # Commande pour démarrer l'application
-CMD ["node", "server.js"]
+CMD node server.js
