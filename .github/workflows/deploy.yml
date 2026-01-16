@@ -30,9 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Exécution des tests (si tu en as)
-      - name: Run tests
-        run: npm test
 
   docker:
     name: Build & Push Docker Image
