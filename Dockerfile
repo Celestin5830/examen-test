@@ -1,14 +1,20 @@
-# Utilisez une image de base avec Java
-FROM eclipse-temurin:17-jdk
+# Utilise une image officielle de Node.js 18
+FROM node:18-alpine
 
-# Définir le répertoire de travail dans le conteneur
-WORKDIR /app
+# Définit le répertoire de travail dans le conteneur
+WORKDIR /usr/src/app
 
-# Copier le fichier jar généré dans le conteneur
-COPY target/*.jar app.jar
+# Copie les fichiers package.json et package-lock.json
+COPY package*.json ./
 
-# Exposer le port sur lequel Spring Boot écoute
-EXPOSE 8080
+# Installe les dépendances
+RUN npm install
 
-# Commande pour lancer l'application Spring Boot
-ENTRYPOINT ["java", "-jar", "/app/docker-demo.jar"]
+# Copie le reste des fichiers du projet
+COPY . .
+
+# Expose le port utilisé par l'application Node.js
+EXPOSE 3000
+
+# Commande pour démarrer l'application
+CMD ["node", "index.js"]
