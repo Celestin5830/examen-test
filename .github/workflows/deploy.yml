@@ -87,8 +87,8 @@ jobs:
 
         run: |
 
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/mon-projet-node:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/examen-test:latest .
 
-          docker push ${{ secrets.DOCKER_USERNAME }}/mon-projet-node:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/examen-test:latest
 
  
